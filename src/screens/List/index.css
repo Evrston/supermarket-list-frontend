@@ -32,6 +32,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding-top: 32px;
 }
 
 .list-screen-title {
