@@ -1,11 +1,12 @@
 import "./index.css";
 
-export const ListCard = ({ item, onClick }) => {
+export const ListCard = ({ item, onClick, onCheckItem }) => {
   return (
-    <div className="list-card-container" onClick={() => onClick(item)}>
+    <div className="list-card-container">
       <img
+        onClick={() => onCheckItem(item)}
         className="checkbox"
-        src={`../images/${item?.checked ? "checked.svg" : "unchecked.svg"}`}
+        src={`/images/${item?.checked ? "checked.svg" : "unchecked.svg"}`}
         alt="checked-item"
       />
       <div className="list-card-text-container">
@@ -16,7 +17,12 @@ export const ListCard = ({ item, onClick }) => {
             : `${item.quantity} Unidade`}
         </span>
       </div>
-      <img src="/images/arrow.svg" alt="arrow-icon" className="arrow-icon" />
+      <img
+        onClick={() => onClick(item)}
+        src="/images/arrow.svg"
+        alt="arrow-icon"
+        className="arrow-icon"
+      />
     </div>
   );
 };

@@ -9,3 +9,9 @@
   overflow-x: hidden;
   padding-top: 32px;
 }
+
+@media screen and (max-width: 420px) {
+  .list-render-container {
+    width: 100%;
+  }
+}
