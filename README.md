@@ -13,6 +13,10 @@ This application was created with React.js to help you make a supermarket lists.
 - CSS
 - Axios
 
+## Requeriments to Run
+
+- Node.js (https://nodejs.org/en)
+
 ## Running Instructions
 
 1. Clone the project:
