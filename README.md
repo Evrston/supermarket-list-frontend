@@ -16,6 +16,25 @@ This application was created with React.js to help you make a supermarket lists.
 ## Running Instructions
 
 1. Clone the project:
-   ´´´
-   git clone `https://github.com/Evrston/supermarket-list-frontend.git`
-   ´´´
+
+```
+git clone https://github.com/Evrston/supermarket-list-frontend.git
+```
+
+2. Instal the dependencies:
+
+```
+cd supermarket-list-frontend && npm install
+```
+
+3. Run the project:
+
+```
+npm start
+```
+
+4. (Optional) If you want build a production version:
+
+```
+npm build
+```
