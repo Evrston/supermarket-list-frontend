@@ -42,7 +42,9 @@ export const HomeScreen = () => {
           placeholder="Ex: usuario1"
         />
         <div className="home-screen-button-container">
-          <Button onClick={onClickContinue}>Continuar</Button>
+          <Button variant={"main"} onClick={onClickContinue}>
+            Continuar
+          </Button>
         </div>
       </div>
     </div>

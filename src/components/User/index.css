@@ -1,0 +1,26 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: auto;
+  height: 38px;
+  border-radius: 12px;
+  border-color: #7785db;
+  border-width: 1px;
+  border-style: solid;
+  padding: 6px;
+  margin-right: 12px;
+}
+.userame {
+  font-size: 24px;
+  font-family: "Avenir Next";
+  font-weight: 500;
+  padding-right: 5px;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  padding-right: 14px;
+}

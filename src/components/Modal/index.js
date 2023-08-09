@@ -28,7 +28,6 @@ export const Modal = ({ onClose, item }) => {
     if (validate) {
       const result = await createItem({ name, quantity: Number(quantity) });
       if (!result?.error) {
-        alert("Item salvo com sucesso.");
         onClose();
       }
     }
@@ -44,7 +43,6 @@ export const Modal = ({ onClose, item }) => {
         checked: item?.checked,
       });
       if (!result?.error) {
-        alert("Item atualizado com sucesso.");
         onClose();
       }
     }
@@ -53,7 +51,6 @@ export const Modal = ({ onClose, item }) => {
   const callDeleteItem = async () => {
     const result = await deleteItem(item._id);
     if (!result?.error) {
-      alert("Item deletado com sucesso.");
       onClose();
     }
   };
@@ -85,7 +82,10 @@ export const Modal = ({ onClose, item }) => {
           type="number"
         />
         <div className="buttons-container">
-          <Button onClick={item ? callUpdateItem : callAddItem}>
+          <Button
+            variant={"main"}
+            onClick={item ? callUpdateItem : callAddItem}
+          >
             {item ? "Atualizar" : "Adicionar"}
           </Button>
           {item && (

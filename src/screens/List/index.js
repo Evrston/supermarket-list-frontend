@@ -1,13 +1,15 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import { getList, updateItem } from "./../../services/request";
-import { Button, ListRender, Loader, Modal } from "./../../components";
+import { Button, ListRender, Loader, Modal, User } from "./../../components";
+import { useNavigate } from "react-router-dom";
 
 export const ListScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const navigate = useNavigate();
 
   const loadListItems = async () => {
     setLoading(true);
@@ -49,20 +51,30 @@ export const ListScreen = () => {
     }
   };
 
+  const onClickLeave = () => {
+    navigate("/");
+  };
+
   return (
     <div className="list-screen-container">
       <div className="list-screen-content-container">
+        <div className="list-screen-user-container">
+          <User />
+          <Button onClick={onClickLeave} variant={"leave"} icon={"leave-icon"}>
+            Sair
+          </Button>
+        </div>
         <div className="list-screen-header">
           <div className="list-screen-title-container">
             <img
               className="logo-image"
-              src="/images/logo.png"
+              src="/images/logo.svg"
               alt="supermarket-list-logo"
             />
             <h1 className="list-screen-title">Lista Supermercado</h1>
           </div>
           <div className="list-screen-header-button-container">
-            <Button onClick={onClickAddButton}>
+            <Button variant={"main"} onClick={onClickAddButton}>
               {window.innerWidth <= 420 ? "+" : "Adicionar"}
             </Button>
           </div>
