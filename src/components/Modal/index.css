@@ -38,7 +38,7 @@
 .modal-close-button {
   width: 24px;
   height: 24px;
-  background-image: url("../../../public/images/icon-close.svg");
+  background-image: url('../../../public/images/icon-close.svg');
   background-position: center;
   background-color: transparent;
   background-repeat: no-repeat;

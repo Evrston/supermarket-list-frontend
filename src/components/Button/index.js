@@ -1,15 +1,15 @@
-import "./index.css";
+import './index.css'
 
 export const Button = ({ children, onClick, variant, icon }) => {
-  let buttonType = "";
-  if (variant === "outline") {
-    buttonType = "outline";
+  let buttonType = ''
+  if (variant === 'outline') {
+    buttonType = 'outline'
   }
-  if (variant === "main") {
-    buttonType = "main";
+  if (variant === 'main') {
+    buttonType = 'main'
   }
-  if (variant === "leave") {
-    buttonType = "leave";
+  if (variant === 'leave') {
+    buttonType = 'leave'
   }
 
   return (
@@ -23,5 +23,5 @@ export const Button = ({ children, onClick, variant, icon }) => {
       )}
       {children}
     </button>
-  );
-};
+  )
+}

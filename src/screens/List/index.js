@@ -1,66 +1,66 @@
-import "./index.css";
-import { useState, useEffect } from "react";
-import { getList, updateItem } from "./../../services/request";
-import { Button, ListRender, Loader, Modal, User } from "./../../components";
-import { useNavigate } from "react-router-dom";
+import './index.css'
+import { useState, useEffect } from 'react'
+import { getList, updateItem } from 'services/request'
+import { Button, ListRender, Loader, Modal, User } from 'components'
+import { useNavigate } from 'react-router-dom'
 
 export const ListScreen = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [listData, setListData] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const navigate = useNavigate();
+  const [modalVisible, setModalVisible] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [listData, setListData] = useState([])
+  const [selectedItem, setSelectedItem] = useState(null)
+  const navigate = useNavigate()
 
   const loadListItems = async () => {
-    setLoading(true);
-    const result = await getList();
-    console.log({ result });
-    setListData(result);
-    setLoading(false);
-  };
+    setLoading(true)
+    const result = await getList()
+    console.log({ result })
+    setListData(result)
+    setLoading(false)
+  }
 
   useEffect(() => {
-    loadListItems();
-  }, []);
+    loadListItems()
+  }, [])
 
   const onClickAddButton = () => {
-    setModalVisible(true);
-    setSelectedItem(null);
-  };
+    setModalVisible(true)
+    setSelectedItem(null)
+  }
 
   const onCloseModal = () => {
-    setModalVisible(false);
-    loadListItems();
-    setSelectedItem(null);
-  };
+    setModalVisible(false)
+    loadListItems()
+    setSelectedItem(null)
+  }
 
   const onEditItem = (item) => {
-    setSelectedItem(item);
-    setModalVisible(true);
-  };
+    setSelectedItem(item)
+    setModalVisible(true)
+  }
 
   const onCheckItem = async (item) => {
     const result = await updateItem(item._id, {
       name: item.name,
       quantity: Number(item.quantity),
-      checked: !item.checked,
-    });
+      checked: !item.checked
+    })
 
     if (!result.error) {
-      loadListItems();
+      loadListItems()
     }
-  };
+  }
 
   const onClickLeave = () => {
-    navigate("/");
-  };
+    navigate('/')
+  }
 
   return (
     <div className="list-screen-container">
       <div className="list-screen-content-container">
         <div className="list-screen-user-container">
           <User />
-          <Button onClick={onClickLeave} variant={"leave"} icon={"leave-icon"}>
+          <Button onClick={onClickLeave} variant={'leave'} icon={'leave-icon'}>
             Sair
           </Button>
         </div>
@@ -74,8 +74,8 @@ export const ListScreen = () => {
             <h1 className="list-screen-title">Lista Supermercado</h1>
           </div>
           <div className="list-screen-header-button-container">
-            <Button variant={"main"} onClick={onClickAddButton}>
-              {window.innerWidth <= 420 ? "+" : "Adicionar"}
+            <Button variant={'main'} onClick={onClickAddButton}>
+              {window.innerWidth <= 420 ? '+' : 'Adicionar'}
             </Button>
           </div>
         </div>
@@ -93,5 +93,5 @@ export const ListScreen = () => {
       </div>
       {modalVisible && <Modal item={selectedItem} onClose={onCloseModal} />}
     </div>
-  );
-};
+  )
+}

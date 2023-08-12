@@ -1,5 +1,5 @@
-import "./index.css";
-import { SAVE_USERNAME_PATH } from "../../services/constants";
+import './index.css'
+import { SAVE_USERNAME_PATH } from 'services/constants'
 
 export const User = () => {
   return (
@@ -11,5 +11,5 @@ export const User = () => {
       />
       <h3 className="userame">{localStorage.getItem(SAVE_USERNAME_PATH)}</h3>
     </div>
-  );
-};
+  )
+}
