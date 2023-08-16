@@ -1,7 +1,7 @@
 import './index.css'
 import { useState, useEffect } from 'react'
 import { getList, updateItem } from 'services/request'
-import { Button, ListRender, Loader, Modal, User } from 'components'
+import { Button, ListRender, Loader, Modal, User, Title } from 'components'
 import { useNavigate } from 'react-router-dom'
 
 export const ListScreen = () => {
@@ -71,7 +71,9 @@ export const ListScreen = () => {
               src="/images/logo.svg"
               alt="supermarket-list-logo"
             />
-            <h1 className="list-screen-title">Lista Supermercado</h1>
+            <Title fontSize={32} ml={12} lineHeight={32}>
+              Lista Supermercado
+            </Title>
           </div>
           <div className="list-screen-header-button-container">
             <Button variant={'main'} onClick={onClickAddButton}>
