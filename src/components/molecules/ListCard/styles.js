@@ -41,7 +41,10 @@ export const TextContainer = styled.div`
     width: 70%;
   }
 `
-export const ArrowIcon = styled.img`
+export const ArrowIcon = styled.img.attrs({
+  src: '/images/arrow.svg',
+  alt: 'arrow-icon'
+})`
   width: 12px;
   height: 16px;
   object-fit: contain;

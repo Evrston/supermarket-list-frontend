@@ -20,12 +20,7 @@ export const ListCard = ({ item, onClick, onCheckItem }) => {
             : `${item.quantity} Unidade`}
         </SmallText>
       </TextContainer>
-      <ArrowIcon
-        onClick={() => onClick(item)}
-        src="/images/arrow.svg"
-        alt="arrow-icon"
-        className="arrow-icon"
-      />
+      <ArrowIcon onClick={() => onClick(item)} />
     </CardContainer>
   )
 }
