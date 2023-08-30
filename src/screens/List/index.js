@@ -1,8 +1,17 @@
-import './index.css'
 import { useState, useEffect } from 'react'
 import { getList, updateItem } from 'services/request'
-import { Button, ListRender, Loader, Modal, User, Title } from 'components'
+import { Button, ListRender, Loader, Modal, Title, User } from 'components'
 import { useNavigate } from 'react-router-dom'
+import {
+  ScreenContainer,
+  ContentContainer,
+  UserContainer,
+  HeaderContainer,
+  TitleContainer,
+  LogoImage,
+  HeaderButtonContainer,
+  ListContainer
+} from './styles'
 
 export const ListScreen = () => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -56,32 +65,33 @@ export const ListScreen = () => {
   }
 
   return (
-    <div className="list-screen-container">
-      <div className="list-screen-content-container">
-        <div className="list-screen-user-container">
+    <ScreenContainer>
+      <ContentContainer>
+        <UserContainer>
           <User />
-          <Button onClick={onClickLeave} variant={'leave'} icon={'leave-icon'}>
-            Sair
+          <Button
+            onClick={onClickLeave}
+            variant={'leave'}
+            icon={'leave-icon'}
+            wd={20}
+          >
+            {window.innerWidth <= 420 ? '' : 'Sair'}
           </Button>
-        </div>
-        <div className="list-screen-header">
-          <div className="list-screen-title-container">
-            <img
-              className="logo-image"
-              src="/images/logo.svg"
-              alt="supermarket-list-logo"
-            />
+        </UserContainer>
+        <HeaderContainer>
+          <TitleContainer>
+            <LogoImage />
             <Title fontSize={32} ml={12} lineHeight={32}>
               Lista Supermercado
             </Title>
-          </div>
-          <div className="list-screen-header-button-container">
+          </TitleContainer>
+          <HeaderButtonContainer>
             <Button variant={'main'} onClick={onClickAddButton}>
               {window.innerWidth <= 420 ? '+' : 'Adicionar'}
             </Button>
-          </div>
-        </div>
-        <div className="list-screen-list-container">
+          </HeaderButtonContainer>
+        </HeaderContainer>
+        <ListContainer>
           {loading ? (
             <Loader />
           ) : (
@@ -91,9 +101,9 @@ export const ListScreen = () => {
               list={listData}
             />
           )}
-        </div>
-      </div>
+        </ListContainer>
+      </ContentContainer>
       {modalVisible && <Modal item={selectedItem} onClose={onCloseModal} />}
-    </div>
+    </ScreenContainer>
   )
 }

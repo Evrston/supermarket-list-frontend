@@ -1,25 +1,20 @@
-.profile {
+import { styled } from 'styled-components'
+
+export const Profile = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-end;
   width: auto;
-  height: 38px;
+  height: 52px;
   border-radius: 12px;
-  border-color: #7785db;
+  border-color: ${({ theme }) => theme.colors.primary};
   border-width: 1px;
   border-style: solid;
   margin-right: 12px;
-}
-.userame {
-  font-size: 24px;
-  font-family: 'Avenir Next';
-  font-weight: 500;
-  padding-right: 5px;
-}
-
-.profile-img {
+`
+export const ProfileImage = styled.img`
   width: 36px;
   height: 36px;
-  padding-right: 14px;
-}
+  padding: 7px;
+`

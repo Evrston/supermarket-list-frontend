@@ -1,28 +1,31 @@
-import './index.css'
+import { CardContainer, CheckImage, TextContainer, ArrowIcon } from './styles'
+import { SmallText } from 'components/atoms'
 
 export const ListCard = ({ item, onClick, onCheckItem }) => {
   return (
-    <div className="list-card-container">
-      <img
+    <CardContainer>
+      <CheckImage
         onClick={() => onCheckItem(item)}
         className="checkbox"
         src={`/images/${item?.checked ? 'checked.svg' : 'unchecked.svg'}`}
         alt="checked-item"
       />
-      <div className="list-card-text-container">
-        <span className="list-card-title">{item.name}</span>
-        <span className="list-card-subtitle">
+      <TextContainer>
+        <SmallText fontSize={16} mb={4} color={'p'}>
+          {item.name}
+        </SmallText>
+        <SmallText fontSize={14}>
           {item.quantity > 1
             ? `${item.quantity} Unidades`
             : `${item.quantity} Unidade`}
-        </span>
-      </div>
-      <img
+        </SmallText>
+      </TextContainer>
+      <ArrowIcon
         onClick={() => onClick(item)}
         src="/images/arrow.svg"
         alt="arrow-icon"
         className="arrow-icon"
       />
-    </div>
+    </CardContainer>
   )
 }

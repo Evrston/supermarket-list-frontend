@@ -1,4 +1,6 @@
-.list-card-container {
+import { styled } from 'styled-components'
+
+export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -7,15 +9,14 @@
   height: 52px;
   min-height: 52px;
   border-radius: 12px;
-  border-color: #7785db;
+  border-color: ${({ theme }) => theme.colors.primary};
   border-width: 1px;
   border-style: solid;
   padding-top: 12px;
   padding-left: 12px;
   margin-bottom: 8px;
-}
-
-.checkbox {
+`
+export const CheckImage = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,42 +25,26 @@
   margin-right: 12px;
   object-fit: contain;
   cursor: pointer;
-}
-
-.list-card-text-container {
+`
+export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 94%;
-}
+  height: auto;
 
-.list-card-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: #7785db;
-  margin-bottom: 4px;
-}
+  @media (max-width: 830px) {
+    width: 84%;
+  }
 
-.list-card-subtitle {
-  font-size: 14px;
-}
-
-.arrow-icon {
+  @media (max-width: 420) {
+    width: 70%;
+  }
+`
+export const ArrowIcon = styled.img`
   width: 12px;
   height: 16px;
   object-fit: contain;
   padding-top: 13px;
   cursor: pointer;
-}
-
-@media screen and (max-width: 830px) {
-  .list-card-text-container {
-    width: 84%;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .list-card-text-container {
-    width: 70%;
-  }
-}
+`

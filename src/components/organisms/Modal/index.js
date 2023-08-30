@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react'
-import './index.css'
-import { Input } from 'components/Input'
-import { Button } from 'components/atoms/Button'
+import { Input } from 'components/molecules'
 import { createItem, updateItem, deleteItem } from 'services/request'
-import { Title } from 'components/atoms'
+import { Title, Button } from 'components/atoms'
+import {
+  ModalBackground,
+  ModalContentContainer,
+  ModalHeader,
+  ModalCloseButton,
+  ButtonsContainer
+} from './styles'
 
 export const Modal = ({ onClose, item }) => {
   const [name, setName] = useState('')
@@ -64,12 +69,12 @@ export const Modal = ({ onClose, item }) => {
   }, [item])
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="modal-header">
+    <ModalBackground>
+      <ModalContentContainer>
+        <ModalHeader>
           <Title>{item ? 'Editar Item' : 'Adicionar novo Item'}</Title>
-          <button onClick={onClose} className="modal-close-button" />
-        </div>
+          <ModalCloseButton onClick={onClose} />
+        </ModalHeader>
         <Input
           onChange={(text) => setName(text)}
           value={name}
@@ -82,7 +87,7 @@ export const Modal = ({ onClose, item }) => {
           label="Quantidade:"
           type="number"
         />
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button
             variant={'main'}
             onClick={item ? callUpdateItem : callAddItem}
@@ -92,14 +97,14 @@ export const Modal = ({ onClose, item }) => {
           {item && (
             <Button
               icon={'icon-trash'}
-              variant={'outline'}
+              variant={'delete'}
               onClick={callDeleteItem}
             >
               Deletar Item
             </Button>
           )}
-        </div>
-      </div>
-    </div>
+        </ButtonsContainer>
+      </ModalContentContainer>
+    </ModalBackground>
   )
 }

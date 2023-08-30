@@ -38,7 +38,7 @@ export const HomeScreen = () => {
           onChange={(text) => setUsername(text)}
           value={username}
           label="Username:"
-          placeholder="Ex: usuario1"
+          placeholder="Ex: usuario2"
         />
         <ButtonContainer className="home-screen-button-container">
           <Button variant={'main'} onClick={onClickContinue}>

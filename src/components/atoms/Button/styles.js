@@ -4,7 +4,7 @@ export const ButtonContainer = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ variant }) => (variant === 'leave' ? 10 : 100)}%;
+  width: ${({ variant }) => (variant === 'leave' ? 20 : 100)}%;
   height: 42px;
   border-radius: 24px;
   border: 1px;
@@ -17,10 +17,12 @@ export const ButtonContainer = styled.button`
   background-color: ${({ theme, variant }) =>
     variant === 'main' ? theme.colors.primary : theme.colors.light};
   color: ${({ theme, variant }) =>
-    variant === 'leave' ? theme.colors.primary : theme.colors.white};
+    variant === 'leave' || variant === 'delete'
+      ? theme.colors.primary
+      : theme.colors.white};
 
   @media (max-width: 420px) {
-    max-width: 300px;
+    max-width: 320px;
   }
 `
 
